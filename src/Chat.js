@@ -17,6 +17,8 @@ function Chat({ socket, username, room }) {
           new Date(Date.now()).getMinutes(),
           type: 'RESPONSE',
         content: currentMessage,
+        contentType:'IMAGE'
+
       };
 
       await socket.emit("send_message", messageData);
@@ -48,7 +50,7 @@ function Chat({ socket, username, room }) {
               >
                 <div>
                   <div className="message-content">
-                    <p>{messageContent.message}</p>
+                    <p>{messageContent.content}</p>
                   </div>
                   <div className="message-meta">
                     <p id="time">{messageContent.time}</p>
